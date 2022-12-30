@@ -93,7 +93,7 @@ GET http://localhost:8080/product
 Content-Type: application/json
 
 ### GET PRODUCT BY ID
-GET http://localhost:8080/product/7d1ad13a-8772-11ed-afe4-f45c89b11b13
+GET http://localhost:8080/product/126e8254-87f5-11ed-9158-f45c89b11b13
 Content-Type: application/json
 
 ### DELETE PRODUCT

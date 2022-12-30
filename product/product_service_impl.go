@@ -9,6 +9,8 @@ import (
 	"github.com/ramdanariadi/dot-test/exception"
 	"github.com/ramdanariadi/dot-test/helpers"
 	"gorm.io/gorm"
+	"log"
+	"time"
 )
 
 type ProductServiceImpl struct {
@@ -27,11 +29,12 @@ func NewProductServiceImpl(DB *gorm.DB) *ProductServiceImpl {
 
 func (p *ProductServiceImpl) FindById(id string) *Product {
 	product := Product{}
-
-	cache, err := p.RedisClient.Get(context.Background(), id).Result()
+	ctx := context.Background()
+	cache, err := p.RedisClient.Get(ctx, id).Result()
 	helpers.LogIfError(err)
 
 	if cache != "" {
+		log.Print("product found in cache")
 		err := json.Unmarshal([]byte(cache), &product)
 		helpers.LogIfError(err)
 	} else {
@@ -39,6 +42,11 @@ func (p *ProductServiceImpl) FindById(id string) *Product {
 		if first.Error != nil {
 			panic(exception.NewNotFoundError("PRODUCT_NOT_FOUND"))
 		}
+		bytes, err := json.Marshal(product)
+		helpers.LogIfError(err)
+		err = p.RedisClient.Set(ctx, product.ID, bytes, 1*time.Hour).Err()
+		helpers.LogIfError(err)
+		log.Print("product in cache")
 	}
 	return &product
 }
@@ -99,8 +107,10 @@ func (p *ProductServiceImpl) Update(request ProductDTO, id string) {
 	product.ImageUrl = request.ImageUrl
 
 	p.DB.Save(&product)
+	p.RedisClient.Del(context.Background(), id)
 }
 
 func (p *ProductServiceImpl) Delete(id string) {
 	p.DB.Where("id = ?", id).Delete(&Product{})
+	p.RedisClient.Del(context.Background(), id)
 }
