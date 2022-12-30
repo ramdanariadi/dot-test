@@ -14,4 +14,5 @@ A GO application using gin and GORM
     $ cd dot-test
     $ docker-compose up -d
 ```
-The application should now be running on localhost:8080
+The application should now be running on localhost:8080  
+We can use **http-test.http** or **dot test.postman_collection.json** included for testing
