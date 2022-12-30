@@ -111,7 +111,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
 
 {
-  "userId": "b8fdc2dd-ab25-11ec-accb-9840bb0dae2f",
   "detailTransaction": [
     {
       "productId": "58e37e66-879a-11ed-802d-f45c89b11b13",
@@ -126,6 +125,6 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
 
 ### GET USER TRANSACTION
-GET http://localhost:8080/transaction/user/b8fdc2dd-ab25-11ec-accb-9840bb0dae2f
+GET http://localhost:8080/transaction
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY

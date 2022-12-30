@@ -55,7 +55,7 @@ func main() {
 	{
 		transactionGroup.Use(auth.SecureRequest()).POST("/", transactionController.Save)
 		transactionGroup.Use(auth.SecureRequest()).GET("/:id", transactionController.FindById)
-		transactionGroup.Use(auth.SecureRequest()).GET("/user/:id", transactionController.FindByUserId)
+		transactionGroup.Use(auth.SecureRequest()).GET("/", transactionController.Find)
 	}
 
 	engine.Run()

@@ -27,6 +27,24 @@
 					"response": []
 				},
 				{
+					"name": "CATEGORY :ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/category/009f76dc-87f5-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"009f76dc-87f5-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "CATEGORY",
 					"request": {
 						"auth": {
@@ -133,7 +151,7 @@
 			"name": "PRODUCT",
 			"item": [
 				{
-					"name": "PRODUCT",
+					"name": "PRODUCTS",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -155,13 +173,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/product/126e8254-87f5-11ed-9158-f45c89b11b13",
+							"raw": "{{base_url}}/product/1c74c680-8856-11ed-b36c-f45c89b11b13",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"product",
-								"126e8254-87f5-11ed-9158-f45c89b11b13"
+								"1c74c680-8856-11ed-b36c-f45c89b11b13"
 							]
 						}
 					},
@@ -184,7 +202,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Octopus\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"009f76dc-87f5-11ed-9158-f45c89b11b13\"\n}",
+							"raw": "{\n  \"name\": \"Octopus\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"1105ff12-8856-11ed-b36c-f45c89b11b13\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -220,7 +238,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"name\": \"Tuna\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"009f76dc-87f5-11ed-9158-f45c89b11b13\"\n}",
+							"raw": "{\n  \"name\": \"Tuna\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"1105ff12-8856-11ed-b36c-f45c89b11b13\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -228,13 +246,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/product/126e8254-87f5-11ed-9158-f45c89b11b13",
+							"raw": "{{base_url}}/product/1c74c680-8856-11ed-b36c-f45c89b11b13",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"product",
-								"126e8254-87f5-11ed-9158-f45c89b11b13"
+								"1c74c680-8856-11ed-b36c-f45c89b11b13"
 							]
 						}
 					},
@@ -290,7 +308,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"userId\": \"b8fdc2dd-ab25-11ec-accb-9840bb0dae2f\",\n  \"detailTransaction\": [\n    {\n      \"productId\": \"126e8254-87f5-11ed-9158-f45c89b11b13\",\n      \"total\": 2\n    }\n  ]\n}",
+							"raw": "{\n  \"detailTransaction\": [\n    {\n      \"productId\": \"1c74c680-8856-11ed-b36c-f45c89b11b13\",\n      \"total\": 2\n    }\n  ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -325,20 +343,20 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/transaction/ea5c9c9e-8806-11ed-8039-f45c89b11b13",
+							"raw": "{{base_url}}/transaction/f6f54fb4-8856-11ed-87f1-f45c89b11b13",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"transaction",
-								"ea5c9c9e-8806-11ed-8039-f45c89b11b13"
+								"f6f54fb4-8856-11ed-87f1-f45c89b11b13"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "TRANSACTOIN :USERID",
+					"name": "TRANSACTOIN",
 					"request": {
 						"auth": {
 							"type": "bearer",
@@ -353,14 +371,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/transaction/user/b8fdc2dd-ab25-11ec-accb-9840bb0dae2f",
+							"raw": "{{base_url}}/transaction",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
-								"transaction",
-								"user",
-								"b8fdc2dd-ab25-11ec-accb-9840bb0dae2f"
+								"transaction"
 							]
 						}
 					},
@@ -370,6 +386,18 @@
 		},
 		{
 			"name": "REGISTER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"pm.collectionVariables.set(\"ACCESS_TOKEN\", response.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],

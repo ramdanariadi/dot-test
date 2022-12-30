@@ -38,7 +38,7 @@ func (p *ProductServiceImpl) FindById(id string) *Product {
 		err := json.Unmarshal([]byte(cache), &product)
 		helpers.LogIfError(err)
 	} else {
-		first := p.DB.First(&product, "id = ?", id)
+		first := p.DB.Preload("Category").First(&product, "id = ?", id)
 		if first.Error != nil {
 			panic(exception.NewNotFoundError("PRODUCT_NOT_FOUND"))
 		}
@@ -62,7 +62,7 @@ func (p *ProductServiceImpl) FindByIds(ids []string) []*Product {
 
 func (p *ProductServiceImpl) FindAll() []*Product {
 	var products []*Product
-	all := p.DB.Find(&products)
+	all := p.DB.Preload("Category").Find(&products)
 	if all.Error != nil {
 		return nil
 	}

@@ -7,8 +7,8 @@ import (
 
 type User struct {
 	ID        string         `gorm:"primaryKey"`
-	Username  string         `verified:"required"`
-	Password  string         `verified:"required"`
+	Username  string         `json:"username"`
+	Password  string         `json:"_"`
 	CreatedAt time.Time      `json:"_"`
 	UpdatedAt time.Time      `json:"_"`
 	DeletedAt gorm.DeletedAt `json:"_" gorm:"index"`

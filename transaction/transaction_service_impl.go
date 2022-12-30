@@ -17,19 +17,22 @@ func NewTransactionServiceImpl(DB *gorm.DB) *TransactionServiceImpl {
 	return &TransactionServiceImpl{DB: DB, ProductService: product.NewProductServiceImpl(DB)}
 }
 
-func (t *TransactionServiceImpl) FindByTransactionId(id string) *Transaction {
+func (t *TransactionServiceImpl) FindByTransactionId(id string, userID string) *Transaction {
 	transaction := Transaction{}
-	tx := t.DB.Preload("DetailTransaction").Preload("DetailTransaction.Product").First(&transaction, "id = ?", id)
+	tx := t.DB.Preload("DetailTransaction").Preload("DetailTransaction.Product").Preload("User").First(&transaction, "id = ?", id)
 	helpers.LogIfError(tx.Error)
 	if tx.Error != nil {
 		panic(exception.NewNotFoundError("TRANSACTION_NOT_FOUND"))
 	}
+	if transaction.UserId != userID {
+		panic(exception.NewAuthenticationError("FORBIDDEN"))
+	}
 	return &transaction
 }
 
-func (t *TransactionServiceImpl) FindByUserId(id string) []*Transaction {
+func (t *TransactionServiceImpl) Find(userId string) []*Transaction {
 	var transactions []*Transaction
-	tx := t.DB.Preload("DetailTransaction").Preload("DetailTransaction.Product").Find(&transactions, "user_id = ?", id)
+	tx := t.DB.Preload("DetailTransaction").Preload("DetailTransaction.Product").Preload("User").Find(&transactions, "user_id = ?", userId)
 	helpers.PanicIfError(tx.Error)
 	return transactions
 }

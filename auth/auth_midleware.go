@@ -29,6 +29,7 @@ func SecureRequest() gin.HandlerFunc {
 
 				if len(claims) > 0 {
 					if claims["role"] == "user" {
+						c.Set("userId", claims["userId"])
 						c.Next()
 						return
 					}
