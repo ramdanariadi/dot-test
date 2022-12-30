@@ -1,6 +1,6 @@
 # Grocery backend dot-test
 
-A GO application using gin and GORM
+A GO application using gin and gorm
 ## Running Locally
 
 * Installing docker  
@@ -15,4 +15,4 @@ A GO application using gin and GORM
     $ docker-compose up -d
 ```
 The application should now be running on localhost:8080  
-We can use **http-test.http** or **dot test.postman_collection.json** included for testing
+We can use **http-test.http** or **dot-test.postman_collection.json** those included for testing
