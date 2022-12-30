@@ -55,7 +55,9 @@ func (u *UserServiceImpl) UserExist(username string) bool {
 }
 
 func (u *UserServiceImpl) SignUp(user UserDTO) Token {
-
+	if u.UserExist(user.Username) {
+		panic(exception.NewAuthenticationError("INVALID_REGISTER"))
+	}
 	password, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	helpers.PanicIfError(err)
 	id, _ := uuid.NewUUID()

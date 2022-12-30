@@ -30,11 +30,12 @@ func SecureRequest() gin.HandlerFunc {
 				if len(claims) > 0 {
 					if claims["role"] == "user" {
 						c.Next()
+						return
 					}
 				}
-				panic("NOT_AUTHENTICATED")
+				c.AbortWithStatusJSON(403, gin.H{"message": "NOT_AUTHENTICATED"})
 			}
 		}
-		panic("NOT_AUTHENTICATED")
+		c.AbortWithStatusJSON(403, gin.H{"message": "NOT_AUTHENTICATED"})
 	}
 }

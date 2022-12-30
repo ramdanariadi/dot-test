@@ -26,7 +26,7 @@ func main() {
 	transactionController := transaction.NewTransactionControllerImpl(db)
 	userController := auth.NewUserController(db)
 
-	engine := gin.Default()
+	engine := gin.New()
 	engine.Use(exception.ErrorHandler())
 
 	engine.POST("/register", userController.SignUp)
