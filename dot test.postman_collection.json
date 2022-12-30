@@ -1,0 +1,442 @@
+{
+	"info": {
+		"_postman_id": "f2ea2112-5f66-4e58-8145-5e41ff34c803",
+		"name": "dot test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2730166"
+	},
+	"item": [
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "CATEGORIES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CATEGORY",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"category\": \"Vegetable\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CATEGORY",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"category\": \"Vegetables\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/category/552dc006-87f4-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"552dc006-87f4-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CATEGORY",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/category/552dc006-87f4-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"category",
+								"552dc006-87f4-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCT",
+			"item": [
+				{
+					"name": "PRODUCT",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRDUCT :ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/126e8254-87f5-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"126e8254-87f5-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Octopus\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"009f76dc-87f5-11ed-9158-f45c89b11b13\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Tuna\",\n  \"price\": 10,\n  \"weight\": 1000,\n  \"description\": \"Good for health\",\n  \"imageUrl\" : null,\n  \"categoryId\": \"009f76dc-87f5-11ed-9158-f45c89b11b13\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/product/126e8254-87f5-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"126e8254-87f5-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/product/126e8254-87f5-11ed-9158-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"product",
+								"126e8254-87f5-11ed-9158-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRANSACTION",
+			"item": [
+				{
+					"name": "TRANSACTION",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"userId\": \"b8fdc2dd-ab25-11ec-accb-9840bb0dae2f\",\n  \"detailTransaction\": [\n    {\n      \"productId\": \"126e8254-87f5-11ed-9158-f45c89b11b13\",\n      \"total\": 2\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/transaction",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transaction"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TRANSACTOIN :ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transaction/ea5c9c9e-8806-11ed-8039-f45c89b11b13",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transaction",
+								"ea5c9c9e-8806-11ed-8039-f45c89b11b13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TRANSACTOIN :USERID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{ACCESS_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/transaction/user/b8fdc2dd-ab25-11ec-accb-9840bb0dae2f",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"transaction",
+								"user",
+								"b8fdc2dd-ab25-11ec-accb-9840bb0dae2f"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "REGISTER",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n  \"username\" : \"admin\",\n  \"password\" : \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"pm.collectionVariables.set(\"ACCESS_TOKEN\", response.accessToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\" : \"admin\",\n  \"password\" : \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "ACCESS_TOKEN",
+			"value": ""
+		}
+	]
+}
