@@ -1,0 +1,131 @@
+### REGISTER
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+  "username" : "admin",
+  "password" : "password"
+}
+
+### LOGIN
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+  "username" : "admin",
+  "password" : "password"
+}
+
+### USER EXIST
+POST http://localhost:8080/userExist
+Content-Type: application/json
+
+{
+"username" : "admin"
+}
+
+### GET ALL CATEGORY
+GET http://localhost:8080/category
+Content-Type: application/json
+
+### GET CATEGORY BY ID
+GET http://localhost:8080/category/c48255b6-0d4d-4337-9725-eab49905a882
+Content-Type: application/json
+
+### SAVE CATEGORY
+POST http://localhost:8080/category
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+{
+  "category": "Fish"
+}
+
+### UPDATE CATEGORY
+PUT http://localhost:8080/category/c48255b6-0d4d-4337-9725-eab49905a882
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+{
+  "category": "Fish"
+}
+
+### DELETE CATEGORY
+DELETE http://localhost:8080/category/c48255b6-0d4d-4337-9725-eab49905a882
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+
+#
+# Product #
+#
+
+### STORE PRODUCT
+POST http://localhost:8080/product
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+{
+  "name": "Octopus",
+  "price": 10,
+  "weight": 1000,
+  "description": "Good for health",
+  "imageUrl" : null,
+  "categoryId": "4f049c5e-879a-11ed-802d-f45c89b11b13"
+}
+
+### UPDATE PRODUCT
+PUT http://localhost:8080/product/7d1ad13a-8772-11ed-afe4-f45c89b11b13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+{
+  "name": "Broccoli",
+  "price": 10,
+  "weight": 1000,
+  "description": "Good for health",
+  "imageUrl" : null,
+  "categoryId": "d6067ef2-8768-11ed-989c-f45c89b11b13"
+}
+
+### GET ALL PRODUCT
+GET http://localhost:8080/product
+Content-Type: application/json
+
+### GET PRODUCT BY ID
+GET http://localhost:8080/product/7d1ad13a-8772-11ed-afe4-f45c89b11b13
+Content-Type: application/json
+
+### DELETE PRODUCT
+DELETE http://localhost:8080/product/7d1ad13a-8772-11ed-afe4-f45c89b11b13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+#
+# Transaction #
+#
+
+### CREATE TRANSACTION
+POST http://localhost:8080/transaction
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+{
+  "userId": "b8fdc2dd-ab25-11ec-accb-9840bb0dae2f",
+  "detailTransaction": [
+    {
+      "productId": "58e37e66-879a-11ed-802d-f45c89b11b13",
+      "total": 2
+    }
+  ]
+}
+
+### GET TRANSACTION BY ID
+GET http://localhost:8080/transaction/6adaf34c-879a-11ed-802d-f45c89b11b13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
+
+### GET USER TRANSACTION
+GET http://localhost:8080/transaction/user/b8fdc2dd-ab25-11ec-accb-9840bb0dae2f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6IjQwNjdiYjVlLTg3OWYtMTFlZC04MjYzLWY0NWM4OWIxMWIxMyJ9.OJlpC7wIE2wa_YTpVYwHKjFOSfBkkf9DzHb4ZiVIMcY
