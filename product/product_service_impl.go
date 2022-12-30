@@ -96,7 +96,7 @@ func (p *ProductServiceImpl) Update(request ProductDTO, id string) {
 	product.Weight = request.Weight
 	product.Description = request.Description
 	product.Category = *categoryId
-	product.ImageUrl = request.CategoryId
+	product.ImageUrl = request.ImageUrl
 
 	p.DB.Save(&product)
 }

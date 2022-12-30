@@ -28,7 +28,7 @@ func (p *ProductControllerImpl) Save(ctx *gin.Context) {
 	if ctx.Bind(&product) == nil {
 		p.Service.Save(product)
 	}
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }
 
 func (p *ProductControllerImpl) Update(ctx *gin.Context) {
@@ -36,9 +36,10 @@ func (p *ProductControllerImpl) Update(ctx *gin.Context) {
 	if ctx.Bind(&product) == nil {
 		p.Service.Update(product, ctx.Param("id"))
 	}
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }
 
 func (p *ProductControllerImpl) Delete(ctx *gin.Context) {
 	p.Service.Delete(ctx.Param("id"))
+	ctx.JSON(200, gin.H{})
 }

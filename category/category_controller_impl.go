@@ -28,7 +28,7 @@ func (c *CategoryControllerImpl) Save(ctx *gin.Context) {
 	if ctx.Bind(&category) == nil {
 		c.Service.Save(category)
 	}
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }
 
 func (c *CategoryControllerImpl) Update(ctx *gin.Context) {
@@ -36,10 +36,10 @@ func (c *CategoryControllerImpl) Update(ctx *gin.Context) {
 	if ctx.Bind(&category) == nil {
 		c.Service.Update(category, ctx.Param("id"))
 	}
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }
 
 func (c *CategoryControllerImpl) Delete(ctx *gin.Context) {
 	c.Service.Delete(ctx.Param("id"))
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }

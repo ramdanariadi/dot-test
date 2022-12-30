@@ -28,5 +28,5 @@ func (t *TransactionControllerImpl) Save(ctx *gin.Context) {
 	if ctx.Bind(&transaction) == nil {
 		t.Service.Save(transaction)
 	}
-	ctx.JSON(200, nil)
+	ctx.JSON(200, gin.H{})
 }
