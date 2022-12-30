@@ -11,6 +11,7 @@ A GO application using gin and GORM
 * Run
 ```
     $ git clone https://github.com/ramdanariadi/dot-test
+    $ cd dot-test
     $ docker-compose up -d
 ```
 The application should now be running on localhost:8080
