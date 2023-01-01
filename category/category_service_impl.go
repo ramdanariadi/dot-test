@@ -6,6 +6,7 @@ import (
 	"github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
 	"github.com/ramdanariadi/dot-test/helpers"
+	"github.com/ramdanariadi/dot-test/setup"
 	"gorm.io/gorm"
 	"log"
 	"time"
@@ -19,7 +20,7 @@ type CategoryServiceImpl struct {
 func NewCategoryService(DB *gorm.DB) *CategoryServiceImpl {
 	return &CategoryServiceImpl{
 		DB:          DB,
-		RedisClient: helpers.NewRedisClient(),
+		RedisClient: setup.NewRedisClient(),
 	}
 }
 
@@ -30,7 +31,6 @@ func (c *CategoryServiceImpl) FindById(id string) *Category {
 	helpers.LogIfError(err)
 
 	if cache != "" {
-		log.Print("category found in cache")
 		err := json.Unmarshal([]byte(cache), &categoryModel)
 		helpers.LogIfError(err)
 	} else {
@@ -40,9 +40,9 @@ func (c *CategoryServiceImpl) FindById(id string) *Category {
 		}
 		bytes, err := json.Marshal(categoryModel)
 		helpers.LogIfError(err)
+
 		err = c.RedisClient.Set(ctx, categoryModel.ID, bytes, 1*time.Hour).Err()
 		helpers.LogIfError(err)
-		log.Print("category in cache")
 	}
 	return &categoryModel
 }

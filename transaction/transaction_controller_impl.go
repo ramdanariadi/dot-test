@@ -26,7 +26,7 @@ func (t *TransactionControllerImpl) FindById(ctx *gin.Context) {
 
 func (t *TransactionControllerImpl) Save(ctx *gin.Context) {
 	var transaction TransactionDTO
-	if ctx.Bind(&transaction) == nil {
+	if ctx.BindJSON(&transaction) == nil {
 		transaction.UserId = ctx.Value("userId").(string)
 		log.Print("userID", transaction.UserId)
 		t.Service.Save(transaction)

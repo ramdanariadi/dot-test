@@ -25,7 +25,7 @@ func (c *CategoryControllerImpl) FindAll(ctx *gin.Context) {
 
 func (c *CategoryControllerImpl) Save(ctx *gin.Context) {
 	var category *CategoryDTO
-	if ctx.Bind(&category) == nil {
+	if ctx.BindJSON(&category) == nil {
 		c.Service.Save(category)
 	}
 	ctx.JSON(200, gin.H{})
@@ -33,7 +33,7 @@ func (c *CategoryControllerImpl) Save(ctx *gin.Context) {
 
 func (c *CategoryControllerImpl) Update(ctx *gin.Context) {
 	var category *CategoryDTO
-	if ctx.Bind(&category) == nil {
+	if ctx.BindJSON(&category) == nil {
 		c.Service.Update(category, ctx.Param("id"))
 	}
 	ctx.JSON(200, gin.H{})

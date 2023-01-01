@@ -9,7 +9,7 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.3.0
-	github.com/lib/pq v1.10.4
+	github.com/lib/pq v1.10.7
 	golang.org/x/crypto v0.4.0
 	gorm.io/driver/postgres v1.4.5
 	gorm.io/gorm v1.24.2

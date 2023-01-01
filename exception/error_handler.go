@@ -1,7 +1,6 @@
 package exception
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator/v10"
 )
@@ -10,7 +9,6 @@ func ErrorHandler() gin.HandlerFunc {
 	return func(context *gin.Context) {
 		defer func() {
 			err := recover()
-			fmt.Printf("recover %v \n", err)
 
 			if errors, ok := err.(validator.ValidationErrors); ok {
 				var errMsg []string

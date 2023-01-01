@@ -25,7 +25,7 @@ func (p *ProductControllerImpl) FindAll(ctx *gin.Context) {
 
 func (p *ProductControllerImpl) Save(ctx *gin.Context) {
 	var product ProductDTO
-	if ctx.Bind(&product) == nil {
+	if ctx.BindJSON(&product) == nil {
 		p.Service.Save(product)
 	}
 	ctx.JSON(200, gin.H{})
@@ -33,7 +33,7 @@ func (p *ProductControllerImpl) Save(ctx *gin.Context) {
 
 func (p *ProductControllerImpl) Update(ctx *gin.Context) {
 	var product ProductDTO
-	if ctx.Bind(&product) == nil {
+	if ctx.BindJSON(&product) == nil {
 		p.Service.Update(product, ctx.Param("id"))
 	}
 	ctx.JSON(200, gin.H{})

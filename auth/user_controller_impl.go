@@ -18,7 +18,8 @@ func NewUserController(db *gorm.DB) *UserControllerImpl {
 
 func (u *UserControllerImpl) Login(ctx *gin.Context) {
 	var user UserDTO
-	if err := ctx.Bind(&user); err == nil {
+	//log.Print(ctx.bind)
+	if err := ctx.BindJSON(&user); err == nil {
 		token := u.Service.Login(user)
 		ctx.JSON(200, token)
 	}

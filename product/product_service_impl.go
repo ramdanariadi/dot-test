@@ -8,8 +8,8 @@ import (
 	"github.com/ramdanariadi/dot-test/category"
 	"github.com/ramdanariadi/dot-test/exception"
 	"github.com/ramdanariadi/dot-test/helpers"
+	"github.com/ramdanariadi/dot-test/setup"
 	"gorm.io/gorm"
-	"log"
 	"time"
 )
 
@@ -23,7 +23,7 @@ func NewProductServiceImpl(DB *gorm.DB) *ProductServiceImpl {
 	return &ProductServiceImpl{
 		DB:              DB,
 		CategoryService: category.NewCategoryService(DB),
-		RedisClient:     helpers.NewRedisClient(),
+		RedisClient:     setup.NewRedisClient(),
 	}
 }
 
@@ -34,7 +34,6 @@ func (p *ProductServiceImpl) FindById(id string) *Product {
 	helpers.LogIfError(err)
 
 	if cache != "" {
-		log.Print("product found in cache")
 		err := json.Unmarshal([]byte(cache), &product)
 		helpers.LogIfError(err)
 	} else {
@@ -46,7 +45,6 @@ func (p *ProductServiceImpl) FindById(id string) *Product {
 		helpers.LogIfError(err)
 		err = p.RedisClient.Set(ctx, product.ID, bytes, 1*time.Hour).Err()
 		helpers.LogIfError(err)
-		log.Print("product in cache")
 	}
 	return &product
 }

@@ -1,8 +1,10 @@
-package helpers
+package setup
 
 import (
 	"database/sql"
 	"fmt"
+	_ "github.com/lib/pq"
+	"github.com/ramdanariadi/dot-test/helpers"
 	"os"
 	"strings"
 	"time"
@@ -35,7 +37,7 @@ func NewDbConnection() (*sql.DB, error) {
 
 	connStr := fmt.Sprintf("postgres://%s:%s@%s/%s?sslmode=disable", dbUsr, dbPass, dbHost, dbName)
 	db, err := sql.Open("postgres", connStr)
-	PanicIfError(err)
+	helpers.PanicIfError(err)
 
 	db.SetMaxOpenConns(100)
 	db.SetMaxIdleConns(10)
